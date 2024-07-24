@@ -10,7 +10,7 @@ EcomCore-API es una plataforma de comercio electrónico simplificada diseñada p
 ## Arquitectura 
 
 <p align="center">
-<img src="Diagrama de Implementación de Arquitectura en AWS para E-commerce.drawio.png" width="400" alt="Arquitectura">
+<img src="Diagrama de Implementación de Arquitectura en AWS para E-commerce.drawio.png" width="800" alt="Arquitectura">
 </p>
 
 Este proyecto utiliza Laravel en el backend y Vue.js en el frontend. Se eligió esta arquitectura por:
