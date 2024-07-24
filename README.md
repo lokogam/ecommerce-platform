@@ -1,45 +1,43 @@
-
-
-
 # EcomCore-API
 
-Descripción del Proyecto
+## Project Description
 
-EcomCore-API es una plataforma de comercio electrónico simplificada diseñada para demostrar habilidades en la implementación de servicios backend y frontend utilizando Laravel y Vue.js. Este proyecto forma parte de una prueba técnica para una posición de backend de nivel medio y cubre aspectos clave de diseño arquitectónico, implementación en la nube, desarrollo de servicios RESTful, y documentación de API.
+EcomCore-API is a simplified e-commerce platform designed to demonstrate skills in implementing backend and frontend services using Laravel and Vue.js. This project is part of a technical test for a mid-level backend position and covers key aspects of architectural design, cloud implementation, RESTful service development, and API documentation.
 
-## Arquitectura 
+## Architecture
 
 <p align="center">
-<img src="Diagrama de Implementación de Arquitectura en AWS para E-commerce.drawio.png" width="800" alt="Arquitectura">
+<img src="Architecture Implementation Diagram in AWS for E-commerce.drawio.png" width="800" alt="Architecture">
 </p>
 
-Este proyecto utiliza Laravel en el backend y Vue.js en el frontend. Se eligió esta arquitectura por:
-- Laravel proporciona un robusto framework PHP con excelente soporte para APIs
-- Vue.js ofrece un framework frontend reactivo y fácil de usar
-Descripción del Diagrama:
-Frontend (Vue.js): Interactúa con el balanceador de carga.
-Balanceador de Carga (ELB): Distribuye el tráfico entre las instancias EC2.
-API Laravel: Gestiona las solicitudes y se divide en dos servicios principales.
-Servicio de Catálogo: Maneja la gestión de productos.
-Servicio de Pedidos: Maneja la gestión de pedidos.
-MySQL: Base de datos para almacenar productos y pedidos.
-Redis: Usado para caché y colas.
-Cola de Tareas: Procesa tareas asíncronas.
-Almacenamiento Local: Usado en desarrollo para archivos estáticos.
-S3: Almacenamiento de archivos estáticos en producción.
-EC2: Ejecuta la aplicación Laravel en la nube.
-RDS: Proporciona una base de datos MySQL gestionada.
-ElastiCache: Administra caché y colas.
-CloudFront: CDN que sirve archivos estáticos.
-IAM: Gestiona permisos y accesos.
-CloudWatch: Monitoreo y logs de la aplicación.
+This project uses Laravel for the backend and Vue.js for the frontend. This architecture was chosen because:
+- Laravel provides a robust PHP framework with excellent API support.
+- Vue.js offers a reactive and user-friendly frontend framework.
 
+### Diagram Description:
 
+- **Frontend (Vue.js):** Interacts with the load balancer.
+- **Load Balancer (ELB):** Distributes traffic among EC2 instances.
+- **Laravel API:** Manages requests and is divided into two main services.
+  - **Catalog Service:** Handles product management.
+  - **Order Service:** Manages order processing.
+- **MySQL:** Database for storing products and orders.
+- **Redis:** Used for caching and queues.
+- **Task Queue:** Processes asynchronous tasks.
+- **Local Storage:** Used in development for static files.
+- **S3:** Stores static files in production.
+- **EC2:** Runs the Laravel application in the cloud.
+- **RDS:** Provides a managed MySQL database.
+- **ElastiCache:** Manages caching and queues.
+- **CloudFront:** CDN serving static files.
+- **IAM:** Manages permissions and access.
+- **CloudWatch:** Monitors and logs application activity.
 
-## Installation 
+## Installation
+
 Follow these steps to clone and install the project:
 
-### Clone the project
+### Clone the Project
 
 Clone the repository from GitHub:
 
@@ -50,7 +48,7 @@ cd EcomCore-API
 
 ## Requirements
 
-Make sure you have the following requirements installed on your machine:
+Ensure you have the following requirements installed on your machine:
 
 - Docker
 - Docker Compose
@@ -63,9 +61,7 @@ Copy the example configuration file and update the environment variables as need
 cp .env.example .env
 ```
 
-### Configuración del entorno
-
-Antes de instalar las dependencias, duplica el archivo `.env.example` y nómbralo `.env`. Luego, agrega las siguientes variables de entorno en el archivo `.env`:
+Add the following environment variables in the `.env` file:
 
 ```env
 SANCTUM_STATEFUL_DOMAINS=localhost:8000
@@ -94,7 +90,7 @@ docker run --rm \
     composer install --ignore-platform-reqs
 ```
 
-## Bringing up the services
+## Bringing Up the Services
 
 Use Docker Compose to bring up the services needed for the project:
 
@@ -102,15 +98,15 @@ Use Docker Compose to bring up the services needed for the project:
 ./vendor/bin/sail up -d
 ```
 
-## generate key 
+## Generate Application Key
 
-generate the application key 
+Generate the application key:
 
 ```bash
 ./vendor/bin/sail artisan key:generate
 ```
 
-## Migrating the database
+## Migrating the Database
 
 Run the migrations to set up the database:
 
@@ -118,91 +114,29 @@ Run the migrations to set up the database:
 ./vendor/bin/sail artisan migrate
 ```
 
+## Execute AWS Setup
 
-ejecuratar
+Run the AWS setup command:
 
 ```bash
 ./vendor/bin/sail artisan aws:setup 
 ```
-documentacion 
-http://localhost/api/documentation
 
-## Accessing the application
+## API Documentation
 
-The application will be available at http://localhost
+The API documentation is available at [http://localhost/api/documentation](http://localhost/api/documentation).
 
-frontend 
-https://github.com/lokogam/VueShop-UI.git
+## Accessing the Application
 
+The application will be available at [http://localhost](http://localhost).
 
-creado por Duvan Gamboa
-coreo duvangamboa8@gmail.com
-linkedin https://www.linkedin.com/in/duvan-gamboa-5193951b2/
+### Frontend
 
+You can find the frontend repository at: [VueShop-UI](https://github.com/lokogam/VueShop-UI.git)
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+---
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Created by Duvan Gamboa  
+Email: [duvangamboa8@gmail.com](mailto:duvangamboa8@gmail.com)  
+LinkedIn: [Duvan Gamboa](https://www.linkedin.com/in/duvan-gamboa-5193951b2/)
 
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
