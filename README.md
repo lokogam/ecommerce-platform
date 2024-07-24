@@ -7,6 +7,35 @@ Descripción del Proyecto
 
 EcomCore-API es una plataforma de comercio electrónico simplificada diseñada para demostrar habilidades en la implementación de servicios backend y frontend utilizando Laravel y Vue.js. Este proyecto forma parte de una prueba técnica para una posición de backend de nivel medio y cubre aspectos clave de diseño arquitectónico, implementación en la nube, desarrollo de servicios RESTful, y documentación de API.
 
+## Arquitectura 
+
+<p align="center">
+<img src="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1#G1mCRuhp3zbcqcRtzLiXIq42Oq89-21QWi" width="400" alt="Arquitectura">
+</p>
+
+Este proyecto utiliza Laravel en el backend y Vue.js en el frontend. Se eligió esta arquitectura por:
+- Laravel proporciona un robusto framework PHP con excelente soporte para APIs
+- Vue.js ofrece un framework frontend reactivo y fácil de usar
+Descripción del Diagrama:
+Frontend (Vue.js): Interactúa con el balanceador de carga.
+Balanceador de Carga (ELB): Distribuye el tráfico entre las instancias EC2.
+API Laravel: Gestiona las solicitudes y se divide en dos servicios principales.
+Servicio de Catálogo: Maneja la gestión de productos.
+Servicio de Pedidos: Maneja la gestión de pedidos.
+MySQL: Base de datos para almacenar productos y pedidos.
+Redis: Usado para caché y colas.
+Cola de Tareas: Procesa tareas asíncronas.
+Almacenamiento Local: Usado en desarrollo para archivos estáticos.
+S3: Almacenamiento de archivos estáticos en producción.
+EC2: Ejecuta la aplicación Laravel en la nube.
+RDS: Proporciona una base de datos MySQL gestionada.
+ElastiCache: Administra caché y colas.
+CloudFront: CDN que sirve archivos estáticos.
+IAM: Gestiona permisos y accesos.
+CloudWatch: Monitoreo y logs de la aplicación.
+
+
+
 ## Installation 
 Follow these steps to clone and install the project:
 
@@ -95,20 +124,15 @@ ejecuratar
 ```bash
 ./vendor/bin/sail artisan aws:setup 
 ```
-
-
-
-
-Install the npm dependencies and build the assets:
-
-```bash
-./vendor/bin/sail npm install
-./vendor/bin/sail npm run build
-```
+documentacion 
+http://localhost/api/documentation
 
 ## Accessing the application
 
 The application will be available at http://localhost
+
+frontend 
+https://github.com/lokogam/VueShop-UI.git
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
