@@ -48,7 +48,22 @@ The project uses Laravel for the backend and Vue.js for the frontend, chosen for
    ```bash
    cp .env.example .env
    ```
-   Update `.env` with necessary variables (see full README for details)
+
+   Add the following environment variables in the .env file:
+
+ ```bash
+    SANCTUM_STATEFUL_DOMAINS=localhost:8000
+    SESSION_DOMAIN=
+    SQS_PREFIX=http://localstack:4566/000000000000
+    SQS_QUEUE=your-queue-name
+    AWS_ACCESS_KEY_ID=test
+    AWS_SECRET_ACCESS_KEY=test
+    AWS_DEFAULT_REGION=us-east-1
+    AWS_BUCKET=your-bucket-name
+    AWS_ENDPOINT=http://localstack:4566
+    AWS_USE_PATH_STYLE_ENDPOINT=true
+    QUEUE_CONNECTION=sqs
+   ```
 
 3. **Install dependencies:**
    ```bash
@@ -94,5 +109,5 @@ Available at [http://localhost/api/documentation](http://localhost/api/documenta
 Created by Duvan Gamboa  
 Email: [duvangamboa8@gmail.com](mailto:duvangamboa8@gmail.com)  
 LinkedIn: [Duvan Gamboa](https://www.linkedin.com/in/duvan-gamboa-5193951b2/)
-```
+
 
